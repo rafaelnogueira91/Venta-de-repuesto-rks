@@ -1,0 +1,153 @@
+/* Linea de comnetario en css */
+
+/* Reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo de body */
+body{
+    background-color: #232323;
+}
+
+/* estilo de header */
+header {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 60px;
+}
+
+/* estilo menu de nevagacion */
+header nav ul {
+    list-style: none;
+    display: flex;
+    color: black;
+    gap: 20px;
+}
+
+/* estilo de logo */
+header img {
+  width: 80%;
+  padding: 1rem;  
+}
+
+/* Estilo de main Index */
+
+/* Class para main Index */
+
+.textos-Index {
+  color: whitesmoke; 
+  text-align: center;
+  justify-content: center;
+}
+
+.lista-Index {
+  list-style: none;
+  padding: 0;
+  margin: 30px 0;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.item-Index{
+  width: 600px;
+  text-align: center;
+}
+
+.item-Index a {
+  text-decoration: none;
+  color: whitesmoke;
+  display: block;
+}
+
+.item-Index img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+
+
+/* Estilo de main productos */
+
+/* Class para main productos */
+
+.productos {
+ color: whitesmoke; 
+  text-align: center;
+  justify-content: center;
+}
+
+.lista-productos {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 1rem;  
+}
+
+.producto{
+    width: 600px;
+}
+
+.producto img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.producto a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+/* Class para contenidos genericos index, productos*/
+
+.generico {
+    color: whitesmoke; 
+    text-align: center;
+}
+
+
+
+/* Class para main contactos */
+
+.contactos-Main {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+    .titulo-Contactos {
+    text-align: center;
+    color: whitesmoke;
+}    
+
+.info-Contacto p {
+    margin: 10px 0;
+    font-size: 18px;
+    color: whitesmoke;
+}
+
+.imagen-Contacto img {
+    width: 600px;
+    max-width: 90%;
+    margin-top: 30px;
+}
+
+
+/* Id footer general y stilos*/
+
+#footer {
+    background-color: white;
+    color:#232323;
+    padding: 40px 20px; 
+    text-align: center; 
+}
