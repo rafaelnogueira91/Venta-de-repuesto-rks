@@ -31,8 +31,9 @@ header nav ul {
 
 /* estilo de logo */
 header img {
-  width: 80%;
-  padding: 1rem;  
+   width: 140px;
+   padding: 10px;
+   height: auto;      
 }
 
 /* Estilo de main Index */
@@ -67,7 +68,7 @@ header img {
 }
 
 .item-Index img {
-  width: 100%;
+  width: 50%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 10px;
@@ -81,16 +82,18 @@ header img {
 
 .productos {
  color: whitesmoke; 
-  text-align: center;
-  justify-content: center;
+ text-align: center;
+ justify-content: center;
 }
 
 .lista-productos {
     list-style: none;
+    text-align: center;
     display: flex;
     justify-content: center;
-    gap: 30px;
-    padding: 1rem;  
+    gap: 10px;
+    padding: 1rem;
+    flex-wrap: wrap;  
 }
 
 .producto{
@@ -98,7 +101,7 @@ header img {
 }
 
 .producto img {
-    width: 100%;
+    width: 50%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 10px;
@@ -116,7 +119,24 @@ header img {
     text-align: center;
 }
 
+/* Class para button */
 
+button {
+  margin-top: 12px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: black;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #e63946;
+  transform: scale(1.05);
+}
 
 /* Class para main contactos */
 
