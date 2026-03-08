@@ -1,0 +1,18 @@
+@use "../utilities/variables" as v;
+
+.contactos-Main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.imagen-Contacto {
+  text-align: center;
+
+  img {
+    width: 100%;
+    max-width: 700px;
+    border-radius: v.$radius-lg;
+    box-shadow: v.$sombra-header;
+  }
+}

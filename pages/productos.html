@@ -1,78 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- link de mi css -->
-    <link rel="stylesheet" href="../css/style.css">
-    <title>Productos-Importadora RKS</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- LINK ESTILOS CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <title>Productos - Importadora RKS</title>
 </head>
-<body>
-   <!-- etiqueta para el banner principal -->
-     <header>
-        <!-- etiqueta para las img -->
-         <a href="../index.html">
-            <img src="../img/logo.png" alt="mi-logo">
-         </a>
 
-        <!-- etiqueta para el menu de navegacion -->
-         <nav>
-          <!-- etiqueta para una lista desordenada -->
-           <ul>
-                <li>
-                    <a href="../index.html">
-                        Home
-                    </a>           
-                </li>
-                <li>Productos</li>
-                <li>
-                    <a href="../pages/contactos.html">
-                        Contactos
-                    </a>   
-                </li>
-           </ul>
-         </nav>
-     </header>
-     <main>
-      <section class="productos">
-    <h1>Nuestros Productos</h1>
-    <p>Revisa nuestra variedad de accesorios para tu moto.</p>
+<body class="bg-dark text-light">
 
-    <div class="lista-productos">
+  <header class="bg-dark sticky-top shadow">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="../index.html">
+      <img src="../img/logo.png" alt="Logo de Importadora RKS" class="logo-rks">
+    </a>
 
-      <div class="producto">
-        <img src="../img/manillas.png" alt="Manillas">
-        <h3>Manillas</h3>
-        <p class="precio">$12.990</p>
-        <button>Agregar al carrito</button>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto gap-lg-2">
+        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="../pages/productos.html">Productos</a></li>
+        <li class="nav-item"><a class="nav-link" href="../pages/contactos.html">Contactos</a></li>
+        <li class="nav-item nav-item-cart">
+          <button class="cart-icon" type="button" onclick="openCart()">
+            🛒
+            <span class="cart-badge" id="cartCount">0</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+  <!-- MAIN -->
+  <main class="container py-4">
+    <div class="text-center mb-4">
+      <h1 class="fw-bold">Nuestros Productos</h1>
+      <p class="text-secondary">Revisa nuestra variedad de accesorios para tu moto.</p>
+    </div>
+     <!-- Buscador + Filtro -->
+<div class="row g-2 mb-3">
+  <div class="col-12 col-md-8">
+    <input id="searchInput" class="form-control bg-dark text-light border-secondary"
+           type="search" placeholder="Buscar producto... (ej: manillas)">
+  </div>
+  <div class="col-12 col-md-4">
+    <select id="categorySelect" class="form-select bg-dark text-light border-secondary">
+      <option value="all">Todas las categorías</option>
+      <option value="Accesorios">Accesorios</option>
+      <option value="Carrocería">Carrocería</option>
+      <option value="Protección">Protección</option>
+    </select>
+  </div>
+</div>
+
+    <div class="row g-3">
+
+      <div class="col-12 col-md-6 col-lg-4 product-card" data-name="manillas" data-cat="Accesorios">
+        <div class="card bg-dark text-light h-100 shadow">
+          <img src="../img/manillas.png" class="card-img-top" alt="Manillas">
+          <div class="card-body">
+            <h5 class="card-title fw-bold">Manillas</h5>
+            <p class="text-warning fw-bold fs-5">$12.990</p>
+            <button class="btn btn-warning w-100 btn-cart"
+              onclick="addToCart({id:'manillas', nombre:'Manillas', precio:12990, img:'manillas.png', cat:'Accesorios'})">
+              Agregar al carrito
+            </button>
+          </div>
+        </div>
       </div>
 
-      <div class="producto">
-        <img src="../img/guardabarros-trasero.png" alt="Guardabarros traseros">
-        <h3>Guardabarros Trasero</h3>
-        <p class="precio">$18.990</p>
-        <button>Agregar al carrito</button>
+      <div class="col-12 col-md-6 col-lg-4 product-card" data-name="guardabarros trasero" data-cat="Carrocería">
+        <div class="card bg-dark text-light h-100 shadow">
+          <img src="../img/guardabarros-trasero.png" class="card-img-top" alt="Guardabarros traseros">
+          <div class="card-body">
+            <h5 class="card-title fw-bold">Guardabarros Trasero</h5>
+            <p class="text-warning fw-bold fs-5">$18.990</p>
+            <button class="btn btn-warning w-100 btn-cart"
+              onclick="addToCart({id:'guardabarros', nombre:'Guardabarros Trasero', precio:18990, img:'guardabarros-trasero.png', cat:'Carrocería'})">
+              Agregar al carrito
+            </button>
+          </div>
+        </div>
       </div>
 
-      <div class="producto">
-        <img src="../img/protector-de-estanque.png" alt="Protector de estanque">
-        <h3>Protector de Estanque</h3>
-        <p class="precio">$9.990</p>
-        <button>Agregar al carrito</button>
+      <div class="col-12 col-md-6 col-lg-4 product-card" data-name="protector de estanque" data-cat="Protección">
+        <div class="card bg-dark text-light h-100 shadow">
+          <img src="../img/protector-de-estanque.png" class="card-img-top" alt="Protector de estanque">
+          <div class="card-body">
+            <h5 class="card-title fw-bold">Protector de Estanque</h5>
+            <p class="text-warning fw-bold fs-5">$9.990</p>
+            <button class="btn btn-warning w-100 btn-cart"
+              onclick="addToCart({id:'protector', nombre:'Protector de Estanque', precio:9990, img:'protector-de-estanque.png', cat:'Protección'})">
+              Agregar al carrito
+            </button>
+          </div>
+        </div>
       </div>
 
     </div>
-  </section>
-</main>
 
-      <!-- etiqueta para contenido generico -->
-      <section>
-               <H2 class="generico">Descuento de 10% en su primera compra</H2>
-      </section>
+    <section class="text-center mt-5">
+      <h2 class="fw-bold">Descuento 10% en tu primera compra</h2>
+      <p class="text-secondary mb-0">Válido en productos seleccionados.</p>
+    </section>
+  </main>
 
-     <!-- etiqueta para el pie de pagina --> 
-     <footer>
-              <P id="footer"> © 2026 Importadora RKS - Todos los derechos reservados </P>
-     </footer>
+  <footer id="footer" class="bg-dark border-top border-secondary">
+    <p class="text-center text-secondary py-3 mb-0">
+      © 2026 Importadora RKS - Todos los derechos reservados
+    </p>
+  </footer>
+  <!-- Mini toast -->
+<div id="miniToast"
+     class="mini-toast d-none position-fixed bottom-0 start-50 translate-middle-x mb-4 px-3 py-2 rounded-3 shadow bg-success text-white">
+     Listo
+</div>
+
+<!-- Modal Carrito -->
+<div class="modal fade" id="cartModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-dark text-light border border-secondary">
+      <div class="modal-header border-secondary">
+        <h5 class="modal-title fw-bold">🛒 Tu carrito</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <div id="cartEmpty" class="text-center text-secondary py-4 d-none">
+          Tu carrito está vacío.
+        </div>
+
+        <div id="cartBody"></div>
+      </div>
+
+      <div class="modal-footer border-secondary d-flex justify-content-between align-items-center">
+        <div class="fw-bold">
+          Total: <span class="text-warning" id="cartTotal">$0</span>
+        </div>
+
+        <div class="d-flex gap-2">
+          <button id="btnClear" class="btn btn-outline-danger" type="button" onclick="clearCart()" disabled>
+            Vaciar
+          </button>
+          <button id="btnWhatsapp" class="btn btn-warning" type="button" onclick="sendWhatsapp()" disabled>
+            Enviar por WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/cart.js"></script>
+  <script>
+  function applyFilters() {
+    const q = (document.getElementById("searchInput").value || "").toLowerCase().trim();
+    const cat = document.getElementById("categorySelect").value;
+
+    document.querySelectorAll(".product-card").forEach(card => {
+      const name = (card.dataset.name || "").toLowerCase();
+      const cardCat = card.dataset.cat || "";
+
+      const matchName = !q || name.includes(q);
+      const matchCat = (cat === "all") || (cardCat === cat);
+
+      card.style.display = (matchName && matchCat) ? "" : "none";
+    });
+  }
+
+  document.getElementById("searchInput").addEventListener("input", applyFilters);
+  document.getElementById("categorySelect").addEventListener("change", applyFilters);
+</script>
 </body>
 </html>

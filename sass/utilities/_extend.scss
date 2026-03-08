@@ -1,0 +1,20 @@
+@use "variables" as v;
+
+/* CARD BASE */
+
+%card-base {
+  background: v.$color-card;
+  border-radius: v.$radius-lg;
+  box-shadow: v.$sombra-card;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+/* BOTONES */
+
+%boton-base {
+  border: none;
+  border-radius: v.$radius-md;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}

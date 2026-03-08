@@ -1,0 +1,62 @@
+@use "../utilities/variables" as v;
+@use "../utilities/mixins" as m;
+@use "../utilities/extend";
+
+.lista-productos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.producto {
+  @extend %card-base;
+  padding: v.$espaciado-grande;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+
+  &:hover {
+    @include m.card-hover;
+  }
+
+  img {
+    @include m.img-square;
+    margin-bottom: 10px;
+  }
+}
+
+.precio {
+  color: v.$color-principal;
+  font-weight: 800;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.btn-cart {
+  font-weight: 700;
+  border-radius: 12px;
+  transition: 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@include m.desktop {
+  .lista-productos {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@include m.tablet {
+  .lista-productos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include m.mobile {
+  .lista-productos {
+    grid-template-columns: 1fr;
+  }
+}

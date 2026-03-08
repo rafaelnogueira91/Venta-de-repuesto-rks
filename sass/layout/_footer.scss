@@ -1,0 +1,30 @@
+@use "../utilities/variables" as v;
+
+/* FOOTER */
+
+#footer {
+  background: v.$color-blanco;
+  color: v.$color-texto-oscuro;
+  padding: 18px 14px;
+  text-align: center;
+}
+
+/* BOTONES REDES */
+
+@each $nombre, $color in v.$redes {
+  .btn-#{$nombre} {
+    background-color: $color;
+    color: white;
+    padding: 10px 14px;
+    border-radius: v.$radius-sm;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 700;
+    margin: 4px;
+    transition: 0.2s ease;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+}

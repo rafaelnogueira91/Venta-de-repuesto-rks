@@ -1,0 +1,33 @@
+@use "../utilities/variables" as v;
+
+/* RESET */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background-color: v.$color-fondo;
+  color: v.$color-blanco;
+}
+
+/* CONTENIDO PRINCIPAL */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 18px;
+}
+
+/* IMÁGENES DE CARDS */
+.card-img-top {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* MNITOAST */
+.mini-toast {
+  z-index: 2000;
+}

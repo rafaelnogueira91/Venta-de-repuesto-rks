@@ -1,0 +1,66 @@
+@use "../utilities/variables" as v;
+@use "../utilities/mixins" as m;
+@use "../utilities/extend";
+
+.textos-Index {
+  padding: 36px 16px;
+  text-align: center;
+
+  h1 {
+    font-size: clamp(28px, 4vw, 44px);
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-size: 16px;
+    color: v.$color-texto-suave;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+}
+
+.lista-Index {
+  margin-top: 26px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.item-Index { 
+  @extend %card-base;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &:hover {
+    @include m.card-hover;
+  }
+
+  a {
+    display: block;
+    padding: 14px;
+  }
+
+  img {
+    @include m.img-square;
+  }
+
+  p {
+    margin-top: 10px;
+    font-weight: 700;
+  }
+}
+
+@include m.tablet {
+  .lista-Index {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include m.mobile {
+  .lista-Index {
+    grid-template-columns: 1fr;
+  }
+}

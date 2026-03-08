@@ -1,0 +1,131 @@
+@use "../utilities/variables" as v;
+@use "../utilities/mixins" as m;
+@use "../utilities/extend";
+
+/* HEADER */
+
+header {
+  background: v.$color-blanco;
+  padding: 14px 28px;
+  @include m.flex-center-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: v.$sombra-header;
+
+  .logo-rks {
+    width: 140px;
+    height: auto;
+  }
+
+  nav {
+    ul {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      list-style: none;
+    }
+
+    a {
+      color: v.$color-texto-oscuro;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 10px 12px;
+      border-radius: v.$radius-sm;
+      transition: 0.2s ease;
+
+      &:hover {
+        background: v.$color-principal-suave;
+        color: v.$color-principal;
+      }
+
+      &.active {
+        color: v.$color-principal;
+        background: v.$color-principal-active;
+        font-weight: 800;
+      }
+    }
+  }
+}
+
+/* CARRITO ICONO */
+
+.nav-item-cart {
+  display: flex;
+  align-items: center;
+}
+
+.cart-icon {
+  @extend %boton-base;
+  position: relative;
+  background: transparent;
+  font-size: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  color: white;
+
+  .cart-badge {
+    position: absolute;
+    top: -4px;
+    right: -6px;
+    background: v.$color-badge;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 7px;
+    border-radius: 50px;
+  }
+}
+
+/* CARRITO ITEMS (MODAL) */
+
+.cart-item-info {
+  min-width: 220px;
+}
+
+.cart-item-img {
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.cart-item-qty {
+  min-width: 24px;
+  text-align: center;
+}
+
+.cart-item-subtotal {
+  min-width: 110px;
+  text-align: right;
+}
+
+/* RESPONSIVE */
+
+@include m.tablet {
+  header {
+    padding: 12px 16px;
+  }
+}
+
+@include m.mobile {
+  header {
+    nav {
+      ul {
+        gap: 10px;
+      }
+
+      a {
+        padding: 8px 10px;
+      }
+    }
+  }
+
+  .nav-item-cart {
+    justify-content: center;
+    margin-top: 10px;
+  }
+}
