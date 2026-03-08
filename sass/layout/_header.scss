@@ -79,10 +79,29 @@ header {
   }
 }
 
+
 /* CARRITO ITEMS (MODAL) */
 
+.cart-item {
+  gap: 10px;
+}
+
 .cart-item-info {
-  min-width: 220px;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1 1 auto;
+}
+
+.cart-item-text {
+  min-width: 0;
+}
+
+.cart-item-name {
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.2;
 }
 
 .cart-item-img {
@@ -91,17 +110,41 @@ header {
   object-fit: cover;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.15);
+  flex-shrink: 0;
+}
+
+/* BOTONES DE CANTIDAD */
+
+.cart-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
 }
 
 .cart-item-qty {
   min-width: 24px;
   text-align: center;
+  font-weight: 700;
 }
 
+/* PRECIO */
+
 .cart-item-subtotal {
-  min-width: 110px;
+  min-width: 78px;
   text-align: right;
+  font-weight: 700;
+  color: #ffc107;
+  margin-left: 8px;
+  flex-shrink: 0;
 }
+
+/* BOTÓN ELIMINAR */
+
+.cart-item-remove {
+  flex-shrink: 0;
+}
+
 
 /* RESPONSIVE */
 
@@ -112,6 +155,7 @@ header {
 }
 
 @include m.mobile {
+
   header {
     nav {
       ul {
@@ -128,4 +172,22 @@ header {
     justify-content: center;
     margin-top: 10px;
   }
+
+  /* Ajustes carrito */
+
+  .cart-item-img {
+    width: 44px;
+    height: 44px;
+  }
+
+  .cart-item-actions {
+    gap: 4px;
+  }
+
+  .cart-item-subtotal {
+    min-width: 64px;
+    font-size: 14px;
+    margin-left: 6px;
+  }
+
 }

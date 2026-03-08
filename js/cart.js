@@ -80,6 +80,12 @@ function removeItem(id) {
 }
 
 // Vacía todo el carrito
+function clearCart() {
+  if (!confirm("¿Vaciar carrito?")) return;
+  setCart([]);
+}
+
+// Renderiza el contenido del carrito en el modal
 function renderCart() {
   const cart = getCart();
 
@@ -110,7 +116,7 @@ function renderCart() {
       const img = p.img ? imgPath(p.img) : "";
 
       return `
-        <div class="d-flex align-items-center justify-content-between border-bottom border-secondary py-2 gap-2">
+        <div class="cart-item d-flex align-items-center border-bottom border-secondary py-2 gap-2">
 
           <div class="d-flex align-items-center gap-2 cart-item-info">
             ${
@@ -118,13 +124,13 @@ function renderCart() {
                 ? `<img src="${img}" alt="${p.nombre}" class="cart-item-img">`
                 : ""
             }
-            <div>
-              <div class="fw-bold">${p.nombre}</div>
+            <div class="cart-item-text">
+              <div class="fw-bold cart-item-name">${p.nombre}</div>
               <div class="text-secondary small">${clp(p.precio)} c/u</div>
             </div>
           </div>
 
-          <div class="d-flex align-items-center gap-2">
+          <div class="d-flex align-items-center gap-2 cart-item-actions">
             <button class="btn btn-sm btn-outline-light" onclick="changeQty('${p.id}', -1)">-</button>
             <span class="fw-bold cart-item-qty">${p.qty}</span>
             <button class="btn btn-sm btn-outline-light" onclick="changeQty('${p.id}', 1)">+</button>
@@ -134,8 +140,7 @@ function renderCart() {
             ${clp(subtotal)}
           </div>
 
-          <button class="btn btn-sm btn-outline-danger" onclick="removeItem('${p.id}')">✕</button>
-
+          <button class="btn btn-sm btn-outline-danger cart-item-remove" onclick="removeItem('${p.id}')">✕</button>
         </div>
       `;
     })
