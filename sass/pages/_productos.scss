@@ -43,6 +43,41 @@
   }
 }
 
+/* BUSCADOR */
+
+.search-input {
+  padding-left: 38px;
+}
+
+/* icono lupa */
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* boton limpiar */
+
+.clear-search {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: white;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.clear-search:hover {
+  opacity: 1;
+}
+
 @include m.desktop {
   .lista-productos {
     grid-template-columns: repeat(4, 1fr);
