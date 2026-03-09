@@ -53,7 +53,7 @@ main {
   object-fit: cover;
 }
 
-/* MNITOAST */
+/* MINITOAST */
 .mini-toast {
   z-index: 2000;
 }
@@ -126,6 +126,22 @@ header nav a.active {
   border-radius: 50px;
 }
 
+/* ANIMACION CONTADOR CARRITO */
+.cart-badge.bump {
+  animation: cart-bump 0.3s ease;
+}
+
+@keyframes cart-bump {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 /* CARRITO ITEMS (MODAL) */
 .cart-item {
   gap: 10px;

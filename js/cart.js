@@ -31,8 +31,12 @@ function setCart(cart) {
 function updateCartCount() {
   const cart = getCart();
   const total = cart.reduce((acc, item) => acc + item.qty, 0);
+
   document.querySelectorAll("#cartCount").forEach((el) => {
     el.textContent = total;
+    el.classList.remove("bump");
+    void el.offsetWidth;
+    el.classList.add("bump");
   });
 }
 
