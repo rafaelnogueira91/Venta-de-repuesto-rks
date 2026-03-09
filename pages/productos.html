@@ -111,7 +111,7 @@
     <div class="row g-3">
  <!-- Producto 1 -->
       <div class="col-12 col-md-6 col-lg-4 product-card" data-name="manillas" data-cat="Accesorios">
-        <div class="card bg-dark text-light h-100 shadow">
+        <div class="card producto bg-dark text-light h-100 shadow">
           <img src="../img/manillas.png" class="card-img-top" alt="Manillas">
           <div class="card-body">
             <h5 class="card-title fw-bold">Manillas</h5>
@@ -126,7 +126,7 @@
 
  <!-- Producto 2 -->
       <div class="col-12 col-md-6 col-lg-4 product-card" data-name="guardabarros trasero" data-cat="Carrocería">
-        <div class="card bg-dark text-light h-100 shadow">
+        <div class="card producto bg-dark text-light h-100 shadow">
           <img src="../img/guardabarros-trasero.png" class="card-img-top" alt="Guardabarros traseros">
           <div class="card-body">
             <h5 class="card-title fw-bold">Guardabarros Trasero</h5>
@@ -141,7 +141,7 @@
 
  <!-- Producto 3 -->
       <div class="col-12 col-md-6 col-lg-4 product-card" data-name="protector de estanque" data-cat="Protección">
-        <div class="card bg-dark text-light h-100 shadow">
+        <div class="card producto bg-dark text-light h-100 shadow">
           <img src="../img/protector-de-estanque.png" class="card-img-top" alt="Protector de estanque">
           <div class="card-body">
             <h5 class="card-title fw-bold">Protector de Estanque</h5>
@@ -222,51 +222,55 @@
   <script src="../js/cart.js"></script>
   
   <script>
-  function applyFilters() {
-    const q = (document.getElementById("searchInput").value || "").toLowerCase().trim();
-    const cat = document.getElementById("categorySelect").value;
 
-    document.querySelectorAll(".product-card").forEach(card => {
-      const name = (card.dataset.name || "").toLowerCase();
-      const cardCat = card.dataset.cat || "";
+/* FILTRO DE PRODUCTOS */
 
-      const matchName = !q || name.includes(q);
-      const matchCat = (cat === "all") || (cardCat === cat);
-
-      card.style.display = (matchName && matchCat) ? "" : "none";
-    });
-  }
-
-  document.getElementById("searchInput").addEventListener("input", applyFilters);
-  document.getElementById("categorySelect").addEventListener("change", applyFilters);
-</script>
-
-<script>
-/* LIMPIAR BUSQUEDA */
 function applyFilters() {
-  const q = (document.getElementById("searchInput").value || "").toLowerCase().trim();
+
+  /* Obtener texto buscado */
+  const q = (document.getElementById("searchInput").value || "")
+              .toLowerCase()
+              .trim();
+
+  /* Obtener categoría seleccionada */
   const cat = document.getElementById("categorySelect").value;
 
+  /* Recorrer todas las tarjetas de producto */
   document.querySelectorAll(".product-card").forEach(card => {
+
     const name = (card.dataset.name || "").toLowerCase();
     const cardCat = card.dataset.cat || "";
 
+    /* Coincidencia por nombre */
     const matchName = !q || name.includes(q);
+
+    /* Coincidencia por categoría */
     const matchCat = (cat === "all") || (cardCat === cat);
 
+    /* Mostrar u ocultar tarjeta */
     card.style.display = (matchName && matchCat) ? "" : "none";
+
   });
+
 }
 
-document.getElementById("searchInput").addEventListener("input", applyFilters);
-document.getElementById("categorySelect").addEventListener("change", applyFilters);
+/* EVENTOS DE BUSCADOR Y FILTRO */
+
+document
+  .getElementById("searchInput")
+  .addEventListener("input", applyFilters);
+
+document
+  .getElementById("categorySelect")
+  .addEventListener("change", applyFilters);
 
 
-/* BOTON LIMPIAR BUSQUEDA */
+/* BOTÓN LIMPIAR BÚSQUEDA */
 
 const searchInput = document.getElementById("searchInput");
 const clearBtn = document.getElementById("clearSearch");
 
+/* Mostrar botón X cuando hay texto */
 searchInput.addEventListener("input", () => {
 
   if (searchInput.value.length > 0) {
@@ -277,10 +281,13 @@ searchInput.addEventListener("input", () => {
 
 });
 
+/* Limpiar búsqueda al hacer clic */
 clearBtn.addEventListener("click", () => {
 
   searchInput.value = "";
   clearBtn.classList.add("d-none");
+
+  /* Reaplicar filtros */
   applyFilters();
 
 });
