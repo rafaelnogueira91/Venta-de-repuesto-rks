@@ -33,6 +33,24 @@
   margin-bottom: 10px;
 }
 
+.stock {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+
+  &-ok {
+    color: #28a745; // verde
+  }
+
+  &-low {
+    color: #ffc107; // amarillo
+  }
+
+  &-out {
+    color: #dc3545; // rojo
+  }
+}
+
 .btn-cart {
   font-weight: 700;
   border-radius: 12px;
